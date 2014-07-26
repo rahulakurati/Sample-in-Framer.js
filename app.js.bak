@@ -1,0 +1,705 @@
+myLayers = Framer.Importer.load("imported/CandidateMasterDetail_Interviewed")
+
+// Demo code
+// Bounce all the views
+
+// for (layerName in myLayers) {
+
+// 	var layer = myLayers[layerName];
+
+// 	layer.on(Events.Click, function(event, layer) {
+		
+// 		// Wind up the layer by making it smaller
+// 		layer.scale = 0.7
+
+// 		// Animate the layer back to the original size with a spring
+// 		layer.animate({
+// 			properties: {scale:1.0},
+// 			curve: "spring",
+// 			curveOptions: {
+// 				friction: 15,
+// 				tension: 1000,
+// 			}
+// 		})
+
+// 		// Only animate this layer, not other ones below
+// 		event.stopPropagation()
+// 	})
+// }
+
+
+var menuStyle = {
+	"cursor" : "pointer"
+};
+
+var popupStyle = {
+	"box-shadow": "10px 10px 5px #888888"
+}
+
+var indicatorDot1 = new Layer({
+	x: 680,
+	y: 290,
+	width: 30,
+	height: 30,
+});
+indicatorDot1.style = {
+		background: 'linear-gradient(#F01111, #C90C0C)',
+		backgroundColor: '#C90C0C',
+		borderRadius: '50%'
+};
+
+var indicatorDot2 = new Layer({
+	x: 10,
+	y: 240,
+	width: 30,
+	height: 30,
+});
+indicatorDot2.style = {
+		background: 'linear-gradient(#F01111, #C90C0C)',
+		backgroundColor: '#C90C0C',
+		borderRadius: '50%'
+};
+
+var indicatorDot3 = new Layer({
+	x: 230,
+	y: 1660,
+	width: 30,
+	height: 30,
+});
+indicatorDot3.style = {
+		background: 'linear-gradient(#F01111, #C90C0C)',
+		backgroundColor: '#C90C0C',
+		borderRadius: '50%'
+};
+
+//retrieving layers from the master layer
+var overview = myLayers['Overview'];
+var qual = myLayers['Qualification'];
+var feedback = myLayers['Team Feedback'];
+var experience = myLayers['Experience'];
+var network = myLayers['Network'];
+var menuresume = myLayers['Resume'];
+var magicLine = myLayers['magicline'];
+var body = myLayers['body'];
+//var panel3 = myLayers['panel3'];
+//var seemore = myLayers['cmore'];
+//var rsm = myLayers['rsm'];
+var leftPanel = myLayers['leftpanel'];
+// var lastPanel = myLayers['lastpanel'];
+// var teamFb = myLayers['teamfb'];
+// var missingNotif = myLayers['missing'];
+var newBox = myLayers['New'];
+var header = myLayers['header'];
+var footer = myLayers['footer'];
+var intitialBodyY = body.y;
+//var intitialPanel3Y = panel3.y;
+//var intitialSeeMoreY = seemore.y;
+//var initialrsmY = rsm.y;
+var c8 = myLayers['c8'];
+var uc8 = myLayers['uc8'];
+var c6 = myLayers['c6'];
+var uc6 = myLayers['uc6'];
+var c5 = myLayers['c5'];
+var uc5 = myLayers['uc5'];
+var c4 = myLayers['c4'];
+var uc4 = myLayers['uc4'];
+var c3 = myLayers['c3'];
+var uc3 = myLayers['uc3'];
+var c2 = myLayers['c2'];
+var uc2 = myLayers['uc2'];
+var c1 = myLayers['c1'];
+var uc1 = myLayers['uc1'];
+var c0 = myLayers['c0'];
+var uc0 = myLayers['uc0'];
+
+
+
+c0.opacity = 0;
+c2.opacity = 0;
+c3.opacity = 0;
+c4.opacity = 0;
+c5.opacity = 0;
+c6.opacity = 0;
+c8.opacity = 0;
+
+var popupBox = new Layer({
+	width : 100,
+	height : 60,
+	backgroundColor: "white",
+	scale : 0
+});
+
+var popupMissing = new Layer({
+	backgroundColor: "white",
+	scale : 0
+});
+
+var popupNew = new Layer({
+	backgroundColor: "white",
+	scale : 0
+});
+
+var popupPDF = new Layer({
+	backgroundColor: "white",
+	scale : 0
+});
+
+header.on(Events.Click, function(){
+	//alert('Menu is selected');
+	window.location = "../HomePage_TotalWorkforceMenu/index.html"
+})
+
+footer.on(Events.Click, function(){
+	//alert('Compare is clicked');
+	window.location = "../Page9-Compare_Candidates/index.html"
+})
+overview.on(Events.Click, function(event){
+	magicLine.animate({
+		properties:{
+			x : 384-1,
+			width : 74-3
+		},
+		time : 0.5
+	}),
+	body.animate({
+		properties:{
+			y : intitialBodyY
+		},
+		time : 0.5
+	})
+	// panel3.animate({
+	// 	properties:{
+	// 		y : intitialPanel3Y - 30
+	// 	},
+	// 	time : 0.5
+	// }),
+	// seemore.animate({
+	// 	properties:{
+	// 		y : intitialSeeMoreY - 30
+	// 	},
+	// 	time : 0.5
+	// }),
+	// rsm.animate({
+	// 	properties:{
+	// 		y : initialrsmY - 30
+	// 	},
+	// 	time : 0.5
+	// })
+	
+})
+
+qual.on(Events.Click, function(event){
+	magicLine.animate({
+		properties:{
+			x : 473-1,
+			width : 93-3
+		},
+		time : 0.5
+	}),
+	body.animate({
+		properties:{
+			y : intitialBodyY - 120
+		},
+		time : 0.5
+	})
+	// panel3.animate({
+	// 	properties:{
+	// 		y : intitialPanel3Y - 520
+	// 	},
+	// 	time : 0.5
+	// }),
+	// seemore.animate({
+	// 	properties:{
+	// 		y : intitialSeeMoreY - 520
+	// 	},
+	// 	time : 0.5
+	// }),
+	// rsm.animate({
+	// 	properties:{
+	// 		y : initialrsmY - 520
+	// 	},
+	// 	time : 0.5
+	// })
+})
+
+feedback.on(Events.Click, function(event){
+	magicLine.animate({
+		properties:{
+			x : 581-1,
+			width : 116-3
+		},
+		time : 0.5
+	}),
+	body.animate({
+		properties:{
+			y : intitialBodyY - 345
+		},
+		time : 0.5
+	})
+	// panel3.animate({
+	// 	properties:{
+	// 		y : intitialPanel3Y - 1430
+	// 	},
+	// 	time : 0.5
+	// }),
+	// seemore.animate({
+	// 	properties:{
+	// 		y : intitialSeeMoreY - 1430
+	// 	},
+	// 	time : 0.5
+	// }),
+	// rsm.animate({
+	// 	properties:{
+	// 		y : initialrsmY - 1430
+	// 	},
+	// 	time : 0.5
+	// })
+})
+
+experience.on(Events.Click, function(event){
+	magicLine.animate({
+		properties:{
+			x : 795-1,
+			width : 86-3
+		},
+		time : 0.5
+	}),
+	body.animate({
+		properties:{
+			y : intitialBodyY - 935
+		},
+		time : 0.5
+	})
+	// panel3.animate({
+	// 	properties:{
+	// 		y : intitialPanel3Y - 3900
+	// 	},
+	// 	time : 0.5
+	// }),
+	// seemore.animate({
+	// 	properties:{
+	// 		y : intitialSeeMoreY - 3900
+	// 	},
+	// 	time : 0.5
+	// }),
+	// rsm.animate({
+	// 	properties:{
+	// 		y : initialrsmY - 3900
+	// 	},
+	// 	time : 0.5
+	// })
+})
+
+network.on(Events.Click, function(event){
+	magicLine.animate({
+		properties:{
+			x : 711-1,
+			width : 69-3
+		},
+		time : 0.5
+	}),
+	body.animate({
+		properties:{
+			y : intitialBodyY - 570
+		},
+		time : 0.5
+	})
+	// panel3.animate({
+	// 	properties:{
+	// 		y : intitialPanel3Y - 2350
+	// 	},
+	// 	time : 0.5
+	// }),
+	// seemore.animate({
+	// 	properties:{
+	// 		y : intitialSeeMoreY - 2350
+	// 	},
+	// 	time : 0.5
+	// }),
+	// rsm.animate({
+	// 	properties:{
+	// 		y : initialrsmY - 2350
+	// 	},
+	// 	time : 0.5
+	// })
+})
+
+menuresume.on(Events.Click, function(event){
+	magicLine.animate({
+		properties:{
+			x : 894-1,
+			width : 60-3
+		},
+		time : 0.5
+	}),
+	body.animate({
+		properties:{
+			y : intitialBodyY - 1220
+		},
+		time : 0.5
+	})
+	// panel3.animate({
+	// 	properties:{
+	// 		y : intitialPanel3Y - 5100
+	// 	},
+	// 	time : 0.5
+	// }),
+	// seemore.animate({
+	// 	properties:{
+	// 		y : intitialSeeMoreY - 5100
+	// 	},
+	// 	time : 0.5
+	// }),
+	// rsm.animate({
+	// 	properties:{
+	// 		y : initialrsmY - 5100
+	// 	},
+	// 	time : 0.5
+	// })
+})
+
+//to bind panel3, rsm and seemore layers to panel2
+//making the panels draggable
+body.draggable.enabled = true;
+body.draggable.speedX = 0;
+// panel3.draggable.enabled = true;
+// panel3.draggable.speedX = 0;
+// rsm.draggable.enabled = true;
+// rsm.draggable.speedX = 0;
+body.on(Events.TouchMove, function(event){
+	// panel3.animate({
+	// 	properties:{
+	// 		y : panel2.maxY + 40
+	// 	},
+	// 	time : -2
+	// }),
+	// seemore.animate({
+	// 	properties:{
+	// 		y : panel2.maxY - 100
+	// 	},
+	// 	time : -2
+	// }),
+	// rsm.animate({
+	// 	properties:{
+	// 		y : panel2.maxY + 3000
+	// 	},
+	// 	time : -2
+	// })
+})
+
+// panel3.on(Events.TouchMove, function(event){
+// 	panel2.animate({
+// 		properties:{
+// 			maxY : panel3.y - 40
+// 		},
+// 		time : -2
+// 	}),
+// 	seemore.animate({
+// 		properties:{
+// 			y : panel3.y - 150
+// 		},
+// 		time : -2
+// 	}),
+// 	rsm.animate({
+// 		properties:{
+// 			y : panel3.y + 2950
+// 		},
+// 		time : -2
+// 	})
+// })
+
+//making the leftpanel draggable
+leftPanel.draggable.enabled = true;
+leftPanel.draggable.speedX = 0;
+// lastPanel.draggable.enabled = true;
+// lastPanel.draggable.speedX = 0;
+
+//binding the leftpanel and lastpanek
+leftPanel.on(Events.TouchMove, function(event){
+	// lastPanel.animate({
+	// 	properties:{
+	// 		y : leftPanel.maxY - 2000
+	// 	},
+	// 	time : -2
+	// }),
+	// teamFb.animate({
+	// 	properties:{
+	// 		y : leftPanel.maxY - 1700
+	// 	},
+	// 	time : -2
+	// }),
+	// missingNotif.animate({
+	// 	properties:{
+	// 		y : leftPanel.maxY - 1600
+	// 	},
+	// 	time : -2
+	// })
+	
+	c0.animate({
+		properties : {
+			y : leftPanel.minY + 15
+		},
+		time : -50
+	}),
+	uc0.animate({
+		properties : {
+			y : leftPanel.minY + 15
+		},
+		time : -50
+	}),
+	c1.animate({
+		properties : {
+			y : leftPanel.minY + 142
+		},
+		time : -50
+	}),
+	uc1.animate({
+		properties : {
+			y : leftPanel.minY + 142
+		},
+		time : -50
+	}),
+	c2.animate({
+		properties : {
+			y : leftPanel.minY + 284
+		},
+		time : -50
+	}),
+	uc2.animate({
+		properties : {
+			y : leftPanel.minY + 284
+		},
+		time : -50
+	}),
+	c3.animate({
+		properties : {
+			y : leftPanel.minY + 428
+		},
+		time : -50
+	}),
+	uc3.animate({
+		properties : {
+			y : leftPanel.minY + 428
+		},
+		time : -50
+	}),
+	c4.animate({
+		properties : {
+			y : leftPanel.minY + 573
+		},
+		time : -50
+	}),
+	uc4.animate({
+		properties : {
+			y : leftPanel.minY + 573
+		},
+		time : -50
+	}),
+	c5.animate({
+		properties : {
+			y : leftPanel.minY + 718
+		},
+		time : -50
+	}),
+	uc5.animate({
+		properties : {
+			y : leftPanel.minY + 718
+		},
+		time : -50
+	}),
+	c6.animate({
+		properties : {
+			y : leftPanel.minY + 868
+		},
+		time : -50
+	}),
+	uc6.animate({
+		properties : {
+			y : leftPanel.minY + 868
+		},
+		time : -50
+	}),
+	c8.animate({
+		properties : {
+			y : leftPanel.minY + 1025
+		},
+		time : -50
+	}),
+	uc8.animate({
+		properties : {
+			y : leftPanel.minY + 1025
+		},
+		time : -50
+	})
+})
+
+c0.on(Events.Click, function(){
+	if(c0.opacity == 0)
+		c0.opacity = 1;
+	else
+		c0.opacity = 0;
+})
+
+c1.on(Events.Click, function(){
+	if(c1.opacity == 0)
+		c1.opacity = 1;
+	else
+		c1.opacity = 0;
+})
+
+c2.on(Events.Click, function(){
+	if(c2.opacity == 0)
+		c2.opacity = 1;
+	else
+		c2.opacity = 0;
+})
+
+c3.on(Events.Click, function(){
+	if(c3.opacity == 0)
+		c3.opacity = 1;
+	else
+		c3.opacity = 0;
+})
+
+c4.on(Events.Click, function(){
+	if(c4.opacity == 0)
+		c4.opacity = 1;
+	else
+		c4.opacity = 0;
+})
+
+c5.on(Events.Click, function(){
+	if(c5.opacity == 0)
+		c5.opacity = 1;
+	else
+		c5.opacity = 0;
+})
+
+c6.on(Events.Click, function(){
+	if(c6.opacity == 0)
+		c6.opacity = 1;
+	else
+		c6.opacity = 0;
+})
+
+c8.on(Events.Click, function(){
+	if(c8.opacity == 0)
+		c8.opacity = 1;
+	else
+		c8.opacity = 0;
+})
+
+
+//feedback msg click
+// teamFb.on(Events.Click, function(event){
+// 	popupMissing.animate({
+// 		properties:{
+// 			scale : 0
+// 		},
+// 		time : 0.1
+// 	});
+// 	popupBox.x = teamFb.maxX + 30;
+// 	popupBox.y = teamFb.y;
+// 	popupBox.html = "<br/><div style=\"text-align:center\"><span style=\"color:#FF8000; font-size: 60px;\">Require H-1 Sponsorship</span></div>";
+// 	popupBox.animate({
+// 		properties:{
+// 			scale : 1,
+// 			width : 740,
+// 			height : 100
+// 		},
+// 		time : 0.2
+// 	});
+// });
+
+// teamFb.on(Events.TouchEnd, function(event){
+// 	popupBox.animate({
+// 		properties:{
+// 			scale : 0
+// 		},
+// 		time : 0.1
+// 	});
+// });
+
+//missing notification click
+// missingNotif.on(Events.Click, function(event){
+// 	popupBox.animate({
+// 		properties:{
+// 			scale : 0
+// 		},
+// 		time : 0.1
+// 	});
+// 	popupMissing.x = missingNotif.maxX + 30;
+// 	popupMissing.y = missingNotif.y;
+// 	popupMissing.html = "<br/><div style=\"text-align:center\"><span style=\"color:red; font-size: 60px;\">Project Management</span></div>";
+// 	popupMissing.animate({
+// 		properties:{
+// 			scale : 1,
+// 			width : 640,
+// 			height : 70
+// 		},
+// 		time : 0.2
+// 	});
+// });
+
+// missingNotif.on(Events.TouchEnd, function(event){
+// 	popupMissing.animate({
+// 		properties:{
+// 			scale : 0
+// 		},
+// 		time : 0.1
+// 	});
+// })
+
+//RESUME CLICK
+//missing notification click
+// rsm.on(Events.Click, function(event){
+// 	popupPDF.x = leftPanel.maxX-400;
+// 	popupPDF.y = 1800;
+// 	popupPDF.html = "<iframe src=\"https://onedrive.live.com/embed?cid=69266575D5FB6155&resid=69266575D5FB6155%213710&authkey=AMaD5MdR5tklTCI&em=2\" width=\"2400\" height=\"1700\" frameborder=\"0\" scrolling=\"no\"></iframe>";
+// 	popupPDF.animate({
+// 		properties:{
+// 			scale : 1,
+// 			width : 2400,
+// 			height : 1700
+// 		},
+// 		time : 0.2
+// 	});
+// });
+
+// rsm.on(Events.TouchEnd, function(event){
+// 	popupPDF.animate({
+// 		properties:{
+// 			scale : 0
+// 		},
+// 		time : 0.1
+// 	});
+// })
+
+//new click
+// newBox.on(Events.Click, function(event){
+// 	popupNew.x = newBox.x;
+// 	popupNew.y = newBox.maxY + 30;
+// 	popupNew.html = "<br/><div style=\"text-align:center;color:red; font-size: 60px;\">Rahul<br/>Nishant<br/>Akshay<br/>Ananya<br/>Eric</div>";
+// 	//popupBox.html = "<iframe width=\"420\" height=\"345\" src=\"http://www.youtube.com/embed/XGSy3_Czz8k\"></iframe>";
+// 	popupNew.animate({
+// 		properties:{
+// 			scale : 1,
+// 			width : 420,
+// 			height : 345
+// 		},
+// 		time : 0.2
+// 	})
+// });
+//appending the style
+overview.style = menuStyle;
+qual.style = menuStyle;
+feedback.style = menuStyle;
+experience.style = menuStyle;
+network.style = menuStyle;
+menuresume.style = menuStyle;
+// seemore.style = menuStyle;
+// rsm.style = menuStyle;
+popupBox.style = popupStyle;
+popupMissing.style = popupStyle;
+popupNew.style = popupStyle;
+popupPDF.style = popupStyle;
